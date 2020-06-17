@@ -22,21 +22,8 @@ from sklearn.svm import SVC
 from sklearn.preprocessing import MinMaxScaler
 import joblib
 from function import fv_hu_moments, fd_hu_moments, fd_haralick, fd_histogram
-
+from const import *
 warnings.filterwarnings('ignore')
-
-# --------------------
-# tunable-parameters
-# --------------------
-fixed_size = tuple((500, 500))
-num_trees = 100
-test_size = 0.10
-seed = 9
-train_path = "dataset/train"
-test_path = "dataset/test"
-h5_data = 'output/data.h5'
-h5_labels = 'output/labels.h5'
-scoring = "accuracy"
 
 
 # get the training labels
@@ -85,9 +72,9 @@ print("[STATUS] training started...")
 # split the training and testing data
 (trainDataGlobal, testDataGlobal, trainLabelsGlobal, testLabelsGlobal) = train_test_split(np.array(global_features),
                                                                                           np.array(
-                                                                                              global_labels),
-                                                                                          test_size=test_size,
-                                                                                          random_state=seed)
+    global_labels),
+    test_size=test_size,
+    random_state=seed)
 
 print("[STATUS] splitted train and test data...")
 print("Train data  : {}".format(trainDataGlobal.shape))
@@ -118,6 +105,7 @@ pyplot.show()
 # -----------------------------------
 
 # to visualize results
+
 
 # create the model - Random Forests
 clf = RandomForestClassifier(n_estimators=num_trees, random_state=seed)

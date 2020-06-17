@@ -9,27 +9,28 @@ import cv2
 import os
 import h5py
 import glob
-# --------------------
-# tunable-parameters
-# --------------------
-images_per_class = 80
-fixed_size = tuple((500, 500))
-train_path = "dataset/train"
-h5_data = 'output/data.h5'
-h5_labels = 'output/labels.h5'
-bins = 8
+from const import *
+
+
+# detail about train set
+def info(train_path):
+    print(train_path)
+    dict = {}
+    listLabel = os.listdir(train_path)
+    for each in listLabel:
+        numberFiles = len(os.listdir(os.path.join(train_path, each)))
+        dict[each] = numberFiles
+    return dict
+
 
 # feature-descriptor-1: Hu Moments
-
-
 def fd_hu_moments(image):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     feature = cv2.HuMoments(cv2.moments(image)).flatten()
     return feature
 
+
 # feature-descriptor-2: Haralick Texture
-
-
 def fd_haralick(image):
     # convert the image to grayscale
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -38,9 +39,8 @@ def fd_haralick(image):
     # return the result
     return haralick
 
+
 # feature-descriptor-3: Color Histogram
-
-
 def fd_histogram(image, mask=None):
     # convert the image to HSV color-space
     image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
