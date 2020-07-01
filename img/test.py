@@ -52,4 +52,3 @@ def test(models, trainDataGlobal, trainLabelsGlobal, train_labels):
         # display the output image
         plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
         plt.savefig()
-        plt.show()

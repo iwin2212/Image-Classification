@@ -12,10 +12,10 @@ scoring = "accuracy"
 
 path = 'D:/learning/XLA/Image-Classification/img'
 
-train_path = os.path.join(path, 'dataset/train')
+train_path = os.path.join(path, 'dataset/train/')
 test_path = os.path.join(path, 'dataset/test')
 
 h5_data = os.path.join(path, 'output/data.h5')
 h5_labels = os.path.join(path, 'output/labels.h5')
 
-output_path = os.path.join(path, 'output/result')
+output_path = os.path.join(path, 'static')

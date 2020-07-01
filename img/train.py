@@ -23,6 +23,7 @@ from sklearn.svm import SVC
 import joblib
 from function import fv_hu_moments, fd_hu_moments, fd_haralick, fd_histogram
 from const import *
+import time
 warnings.filterwarnings('ignore')
 
 
@@ -71,11 +72,8 @@ def train():
     print("[STATUS] training started...")
 
     # split the training and testing data
-    (trainDataGlobal, testDataGlobal, trainLabelsGlobal, testLabelsGlobal) = train_test_split(np.array(global_features),
-                                                                                              np.array(
-        global_labels),
-        test_size=test_size,
-        random_state=seed)
+    (trainDataGlobal, testDataGlobal, trainLabelsGlobal, testLabelsGlobal) = train_test_split(
+        np.array(global_features), np.array(global_labels), test_size=test_size, random_state=seed)
 
     print("[STATUS] splitted train and test data...")
     print("Train data  : {}".format(trainDataGlobal.shape))
@@ -100,5 +98,6 @@ def train():
     plt.boxplot(results)
     ax.set_xticklabels(names)
     plt.legend(loc=0)
-    plt.savefig(os.path.join(output_path, 'model.png'))
-    return models, trainDataGlobal, trainLabelsGlobal, train_labels, results
+    img_name = str(int(time.time()))
+    plt.savefig(os.path.join(output_path, img_name))
+    return models, trainDataGlobal, trainLabelsGlobal, train_labels, results, img_name
