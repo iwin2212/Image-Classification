@@ -46,7 +46,8 @@ def train():
     # models.append(('RF', RandomForestClassifier(
     #     n_estimators=num_trees, random_state=seed)))
     # models.append(('NB', GaussianNB()))
-    models.append(('SVM', SVC(random_state=seed)))
+    # models.append(('SVM', SVC(random_state=seed)))
+    models.append(('SVM', SVC(gamma=0.001)))
 
     # variables to hold the results and names
     results = []
@@ -88,7 +89,9 @@ def train():
             model, trainDataGlobal, trainLabelsGlobal, cv=kfold, scoring=scoring)
         results.append(cv_results)
         names.append(name)
-        msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
+        std = cv_results.std()
+        mean = float(format((cv_results.mean() * 100), ".2f"))
+        msg = "%s: %f (%f)" % (name, mean, std)
         print(msg)
 
     # boxplot algorithm comparison
@@ -99,5 +102,5 @@ def train():
     ax.set_xticklabels(names)
     plt.legend(loc=0)
     img_name = str(int(time.time()))
-    plt.savefig(os.path.join(output_path, img_name))
-    return models, trainDataGlobal, trainLabelsGlobal, train_labels, results, img_name
+    plt.savefig(os.path.join(model_path, img_name))
+    return models, trainDataGlobal, trainLabelsGlobal, train_labels, mean, img_name

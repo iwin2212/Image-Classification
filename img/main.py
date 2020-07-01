@@ -21,15 +21,16 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    dict = info(train_path)
+    models, trainDataGlobal, trainLabelsGlobal, train_labels, result, img_name = train()
+    print("models: ", models)
     if request.method == 'POST':
         file = request.files['file']
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         test(models, trainDataGlobal, trainLabelsGlobal, train_labels)
         return render_template('result.html')
-    dict = info(train_path)
-    models, trainDataGlobal, trainLabelsGlobal, train_labels, result = train()
-    return render_template('home.html', dict=dict, rate=result)
+    return render_template('home.html', dict=dict, rate=result, img_name=img_name)
 
 
 if __name__ == '__main__':
