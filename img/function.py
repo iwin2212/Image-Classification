@@ -11,7 +11,7 @@ from const import *
 
 # detail about train set
 def info(train_path):
-    print(train_path)
+    # print(train_path)
     dict = {}
     listLabel = os.listdir(train_path)
     for each in listLabel:

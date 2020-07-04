@@ -5,7 +5,8 @@
 <head>
     <title>Image Classification</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width
+    initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
@@ -35,8 +36,35 @@
                     <img src="/static/model/{{img_name}}.png" class="img-fluid" alt="model" width="800" height="600">
                 </div>
                 <div class="col">
-                    <p>Độ chính xác: <big>{{acc}}</big> %</p>
-                    <p>Sai số: <big>{{std}}</big></p>
+                    <div class="table table-hover table-borderless table-responsive">
+                        <tr>
+                            <td>Độ chính xác: <big>{{acc}}</big> %</td>
+                        </tr>
+                        <tr>
+                            <td>Sai số: <big>{{std}}</big></td>
+                        </tr>
+                        <tr>
+                            <td>Features Vector - shatre: <big>{{global_features_shatre}}</big></td>
+                        </tr>
+                        <tr>
+                            <td><small>Features Vector = Hu Moments + Haralick Texture + Color Histogram</small></td>
+                        </tr>
+                        <tr>
+                            <td>Labels Vector - shatre: <big>{{global_labels_shatre}}</big></td>
+                        </tr>
+                        <tr>
+                            <td>Train Data - shatre: <big>{{trainDataGlobal_shatre}}</big></td>
+                        </tr>
+                        <tr>
+                            <td>Test Data - shatre: <big>{{testDataGlobal_shatre}}</big></td>
+                        </tr>
+                        <tr>
+                            <td>Train Labels - shatre: <big>{{trainLabelsGlobal_shatre}}</big></td>
+                        </tr>
+                        <tr>
+                            <td>Test Labels - shape: <big>{{testLabelsGlobal_shape}}</big></td>
+                        </tr>
+                    </div>
                 </div>
             </div>
         </div>

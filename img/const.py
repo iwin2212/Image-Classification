@@ -20,3 +20,4 @@ h5_labels = os.path.join(path, 'output/labels.h5')
 
 output_path = os.path.join(path, 'static/results')
 model_path = os.path.join(path, 'static/model')
+

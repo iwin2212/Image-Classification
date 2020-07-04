@@ -9,14 +9,7 @@ import cv2
 import warnings
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.model_selection import KFold
-# from sklearn.linear_model import LogisticRegression
-# from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
-# from sklearn.neighbors import KNeighborsClassifier
-# from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-# from sklearn.naive_bayes import GaussianNB
-# from sklearn.svm import SVC
-# from sklearn.preprocessing import MinMaxScaler
 from function import get_data_label, get_feature, get_train_label
 from const import *
 import time
@@ -55,10 +48,10 @@ def train_test():
     std = float(format((cv_results.std() * 100), ".2f"))
     mean = float(format((cv_results.mean() * 100), ".2f"))
 
-    fig = plt.figure()
-    fig.suptitle('Độ chính xác của thuật toán')
-    ax = fig.add_subplot(111)
-    plt.legend(loc=0)
+    plt.bar('Random Forest', mean, 1)
+    plt.title("Tỷ lệ chính xác")
+    plt.ylabel("%")
+    plt.xlabel("Thuật toán")
     img_name = str(int(time.time()))
     plt.savefig(os.path.join(model_path, img_name))
 
@@ -92,4 +85,5 @@ def train_test():
         # display the output image
         plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
         plt.savefig(os.path.join(output_path, label))
-        return label, mean, std, img_name
+
+        return label, mean, std, img_name, global_features.shape, global_labels.shape, trainDataGlobal.shape, testDataGlobal.shape, trainLabelsGlobal.shape, testLabelsGlobal.shape
