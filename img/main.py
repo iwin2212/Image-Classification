@@ -19,8 +19,13 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def home():
+    return render_template('home.html', dict=dict)
+
+
+@app.route('/result', methods=['GET', 'POST'])
+def result():
     if request.method == 'POST':
         uploaded_files = request.files.getlist("file[]")
         for file in uploaded_files:
@@ -33,7 +38,6 @@ def home():
                                global_features_shape=global_features_shape, global_labels_shape=global_labels_shape,
                                trainDataGlobal_shape=trainDataGlobal_shape, testDataGlobal_shape=testDataGlobal_shape,
                                trainLabelsGlobal_shape=trainLabelsGlobal_shape, testLabelsGlobal_shape=testLabelsGlobal_shape)
-    return render_template('home.html', dict=dict)
 
 
 if __name__ == '__main__':

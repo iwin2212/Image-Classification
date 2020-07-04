@@ -36,35 +36,41 @@
                     <img src="/static/model/{{img_name}}.png" class="img-fluid" alt="model" width="800" height="600">
                 </div>
                 <div class="col">
-                    <div class="table table-hover table-borderless table-responsive">
-                        <tr>
-                            <td>Độ chính xác: <big>{{acc}}</big> %</td>
-                        </tr>
-                        <tr>
-                            <td>Sai số: <big>{{std}}</big></td>
-                        </tr>
-                        <tr>
-                            <td>Features Vector - shatre: <big>{{global_features_shatre}}</big></td>
-                        </tr>
-                        <tr>
-                            <td><small>Features Vector = Hu Moments + Haralick Texture + Color Histogram</small></td>
-                        </tr>
-                        <tr>
-                            <td>Labels Vector - shatre: <big>{{global_labels_shatre}}</big></td>
-                        </tr>
-                        <tr>
-                            <td>Train Data - shatre: <big>{{trainDataGlobal_shatre}}</big></td>
-                        </tr>
-                        <tr>
-                            <td>Test Data - shatre: <big>{{testDataGlobal_shatre}}</big></td>
-                        </tr>
-                        <tr>
-                            <td>Train Labels - shatre: <big>{{trainLabelsGlobal_shatre}}</big></td>
-                        </tr>
-                        <tr>
-                            <td>Test Labels - shape: <big>{{testLabelsGlobal_shape}}</big></td>
-                        </tr>
-                    </div>
+                    <table class="table table-hover table-borderless">
+                        <thead>
+                            <th>THÔNG SỐ LIÊN QUAN:</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Độ chính xác: <big>{{acc}}</big> %</td>
+                            </tr>
+                            <tr>
+                                <td>Sai số: <big>{{std}}</big></td>
+                            </tr>
+                            <tr>
+                                <td>Features Vector - shatre: <big>{{global_features_shatre}}</big></td>
+                            </tr>
+                            <tr>
+                                <td><small>Features Vector = Hu Moments + Haralick Texture + Color Histogram</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Labels Vector - shatre: <big>{{global_labels_shatre}}</big></td>
+                            </tr>
+                            <tr>
+                                <td>Train Data - shatre: <big>{{trainDataGlobal_shatre}}</big></td>
+                            </tr>
+                            <tr>
+                                <td>Test Data - shatre: <big>{{testDataGlobal_shatre}}</big></td>
+                            </tr>
+                            <tr>
+                                <td>Train Labels - shatre: <big>{{trainLabelsGlobal_shatre}}</big></td>
+                            </tr>
+                            <tr>
+                                <td>Test Labels - shape: <big>{{testLabelsGlobal_shape}}</big></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -79,6 +85,9 @@
                 </td>
             </tr>
         </div>
+    </div>
+    <div class="container">
+        <button type="button" class="btn-success" href="/">Quay lại</button>
     </div>
 </body>
 
