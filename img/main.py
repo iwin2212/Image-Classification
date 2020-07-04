@@ -1,11 +1,10 @@
-from flask import Flask, flash, request, redirect, url_for, render_template, session
+from flask import Flask, flash, request, redirect, url_for, render_template, session, send_from_directory
 from werkzeug.utils import secure_filename
 import yaml
 import os
 from const import *
-from train import train
-from test import test
-from function import *
+from train_test import train_test
+from function import info
 
 UPLOAD_FOLDER = test_path
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
@@ -21,17 +20,18 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    dict = info(train_path)
-    models, trainDataGlobal, trainLabelsGlobal, train_labels, result, img_name = train()
-    print("models: ", models)
     if request.method == 'POST':
-        file = request.files['file']
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        test(models, trainDataGlobal, trainLabelsGlobal, train_labels)
-        return render_template('result.html')
-    return render_template('home.html', dict=dict, rate=result, img_name=img_name)
+        uploaded_files = request.files.getlist("file[]")
+        for file in uploaded_files:
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                label, mean, std, img_name = train_test()
+                os.remove(test_path + filename)
+        return render_template('result.html', label=label, acc=mean, std=std, img_name=img_name)
+    return render_template('home.html', dict=dict)
 
 
 if __name__ == '__main__':
-    app.run(debug="true")
+    dict = info(train_path)
+    app.run(host="127.0.0.1", port=int("80"), debug=True)
