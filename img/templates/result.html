@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="container">
             <h2>Độ chính xác của thuật toán</h2>
             <div class="row">
@@ -36,7 +36,7 @@
                     <img src="/static/model/{{img_name}}.png" class="img-fluid" alt="model" width="800" height="600">
                 </div>
                 <div class="col">
-                    <table class="table table-hover table-borderless">
+                    <table class="table table-hover">
                         <thead>
                             <th>THÔNG SỐ LIÊN QUAN:</th>
                         </thead>
@@ -48,23 +48,23 @@
                                 <td>Sai số: <big>{{std}}</big></td>
                             </tr>
                             <tr>
-                                <td>Features Vector - shatre: <big>{{global_features_shatre}}</big></td>
+                                <td>Features Vector - shatre: <big>{{global_features_shape}}</big></td>
                             </tr>
                             <tr>
                                 <td><small>Features Vector = Hu Moments + Haralick Texture + Color Histogram</small>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Labels Vector - shatre: <big>{{global_labels_shatre}}</big></td>
+                                <td>Labels Vector - shatre: <big>{{global_labels_shape}}</big></td>
                             </tr>
                             <tr>
-                                <td>Train Data - shatre: <big>{{trainDataGlobal_shatre}}</big></td>
+                                <td>Train Data - shatre: <big>{{trainDataGlobal_shape}}</big></td>
                             </tr>
                             <tr>
-                                <td>Test Data - shatre: <big>{{testDataGlobal_shatre}}</big></td>
+                                <td>Test Data - shatre: <big>{{testDataGlobal_shape}}</big></td>
                             </tr>
                             <tr>
-                                <td>Train Labels - shatre: <big>{{trainLabelsGlobal_shatre}}</big></td>
+                                <td>Train Labels - shatre: <big>{{trainLabelsGlobal_shape}}</big></td>
                             </tr>
                             <tr>
                                 <td>Test Labels - shape: <big>{{testLabelsGlobal_shape}}</big></td>
@@ -86,8 +86,9 @@
             </tr>
         </div>
     </div>
+
     <div class="container">
-        <button type="button" class="btn-success" href="/">Quay lại</button>
+        <a class="btn btn-success" role="button" href='/'>Back</a>
     </div>
 </body>
 
