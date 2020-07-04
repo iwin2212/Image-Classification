@@ -1,18 +1,20 @@
 # -----------------------------------
 # TRAINING OUR MODEL
 # -----------------------------------
-import glob
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-import cv2
-import warnings
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.model_selection import KFold
-from sklearn.ensemble import RandomForestClassifier
-from function import get_data_label, get_feature, get_train_label
-from const import *
 import time
+from const import *
+from function import get_data_label, get_feature, get_train_label
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import KFold
+from sklearn.model_selection import train_test_split, cross_val_score
+import warnings
+import cv2
+import os
+import numpy as np
+import glob
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 warnings.filterwarnings('ignore')
 
 
@@ -48,11 +50,11 @@ def train_test():
     std = float(format((cv_results.std() * 100), ".2f"))
     mean = float(format((cv_results.mean() * 100), ".2f"))
 
-    plt.bar('Random Forest', mean, 1)
-    plt.title("Tỷ lệ chính xác")
-    plt.ylabel("%")
-    plt.xlabel("Thuật toán")
+    # plt.bar('Random Forest', mean, 1)
     img_name = str(int(time.time()))
+    plt.title("Tỷ lệ chính xác")
+    plt.ylabel("Phần Trăm (%)")
+    plt.xlabel("Thuật toán")
     plt.savefig(os.path.join(model_path, img_name))
 
 

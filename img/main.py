@@ -34,7 +34,7 @@ def result():
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 label, mean, std, img_name, global_features_shape, global_labels_shape, trainDataGlobal_shape, testDataGlobal_shape, trainLabelsGlobal_shape, testLabelsGlobal_shape = train_test()
                 os.remove(test_path + filename)
-        return render_template('result.html', label=label, acc=mean, std=std, img_name=img_name,
+        return render_template('result.html', dict=dict, label=label, acc=mean, std=std, img_name=img_name,
                                global_features_shape=global_features_shape, global_labels_shape=global_labels_shape,
                                trainDataGlobal_shape=trainDataGlobal_shape, testDataGlobal_shape=testDataGlobal_shape,
                                trainLabelsGlobal_shape=trainLabelsGlobal_shape, testLabelsGlobal_shape=testLabelsGlobal_shape)
@@ -42,4 +42,4 @@ def result():
 
 if __name__ == '__main__':
     dict = info(train_path)
-    app.run(host="127.0.0.1", port=int("80"), debug=True)
+    app.run(host="127.0.0.1", port=80, debug=True)
