@@ -5,8 +5,11 @@
 <head>
     <title>Image Classification</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width
-    initial-scale=1">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
@@ -22,72 +25,110 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-    <style>
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="/static/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
+
     <br>
-    <div class="container-fluid">
+    <section id="about">
         <div class="container">
-            <div class="row">
-                <div class='col'>
-                    <div class="table table-bordered">
-                        <tr>
-                            <td>
-                                <img src="/static/results/{{label}}.png" class="img-fluid" alt="{{label}}" width="500"
-                                    height="500">
-                            </td>
-                            <td>
-                                <p id="name">Thuộc về class: <big><b>{{label}}</b></big></p>
-                                <p>Áp dụng thuật toán Random Forest Classifier</p>
-                            </td>
-                        </tr>
-                    </div>
-                </div>
-                <div class="col">
+            <header class="section-header">
+                <h3>KẾT QUẢ</h3>
+                <p>Áp dụng thuật toán Random Forest Classifier</p>
+            </header>
+
+
+            <div class="row about-container">
+                <div class="col-lg-6 content order-lg-1 order-2">
                     <table class="table table-hover">
                         <thead class="thead-dark">
-                            <th>THÔNG SỐ LIÊN QUAN:</th>
+                            <h4>THÔNG SỐ LIÊN QUAN:</h4>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Độ chính xác: <big>{{acc}}</big> %</td>
-                            </tr>
-                            <tr>
-                                <td>Sai số: <big>{{std}}</big></td>
-                            </tr>
-                            <tr>
-                                <td>Features Vector - shatre: <big>{{global_features_shape}}</big></td>
-                            </tr>
-                            <tr>
-                                <td><small>Features Vector = Hu Moments + Haralick Texture + Color Histogram</small>
+                                <td>
+                                    <div class="icon-box wow fadeInUp">
+                                        <h4 class="title">Độ chính xác: <big>{{acc}}</big> %</h4>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Labels Vector - shatre: <big>{{global_labels_shape}}</big></td>
+                                <td>
+                                    <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                                        <h4 class="title">Sai số: <big>{{std}}</big></h4>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Train Data - shatre: <big>{{trainDataGlobal_shape}}</big></td>
+                                <td>
+                                    <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                                        <h4 class="title">Features Vector - shape: <big>{{global_labels_shape}}</big>
+                                        </h4>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Test Data - shatre: <big>{{testDataGlobal_shape}}</big></td>
+                                <td>
+                                    <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                                        <h4 class="title">Train Data - shape: <big>{{trainDataGlobal_shape}}</big></h4>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Train Labels - shatre: <big>{{trainLabelsGlobal_shape}}</big></td>
+                                <td>
+                                    <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                                        <h4 class="title">Test Data - shape: <big>{{testDataGlobal_shape}}</big></h4>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Test Labels - shape: <big>{{testLabelsGlobal_shape}}</big></td>
+                                <td>
+                                    <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                                        <h4 class="title">Train Labels - shape: <big>{{trainLabelsGlobal_shape}}</big>
+                                        </h4>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                                        <h4 class="title">Test Labels - shape: <big>{{testLabelsGlobal_shape}}</big>
+                                        </h4>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+                    <img src="/static/results/{{label}}.png" class="img-fluid" alt="">
+                    <p id="name">Thuộc về class: <big><b>{{label}}</b></big></p>
+                </div>
             </div>
         </div>
-
-
-    </div>
+    </section>
 
     <div class="container">
         <a class="btn btn-success" role="button" href='/'>Back home</a>
@@ -114,6 +155,25 @@
             </tbody>
         </table>
     </div class="container">
+
+    <!-- JavaScript Libraries -->
+    <script src="/static/lib/jquery/jquery.min.js"></script>
+    <script src="/static/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/lib/easing/easing.min.js"></script>
+    <script src="/static/lib/mobile-nav/mobile-nav.js"></script>
+    <script src="/static/lib/wow/wow.min.js"></script>
+    <script src="/static/lib/waypoints/waypoints.min.js"></script>
+    <script src="/static/lib/counterup/counterup.min.js"></script>
+    <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/static/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="/static/js/main.js"></script>
+
+
+
 </body>
 
 </html>

@@ -15,9 +15,10 @@ path = 'D:/learning/XLA/Image-Classification/img'
 train_path = os.path.join(path, 'dataset/train/')
 test_path = os.path.join(path, 'dataset/test/')
 
-h5_data = os.path.join(path, 'output/data.h5')
-h5_labels = os.path.join(path, 'output/labels.h5')
-
 output_path = os.path.join(path, 'static/results')
 model_path = os.path.join(path, 'static/model')
 
+training_started = 0
+splitted_train_and_test_dat = 0
+completed_global_feature_extraction = 0
+training_finished = 0

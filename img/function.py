@@ -104,6 +104,7 @@ def get_data_label():
         print("[STATUS] processed folder: {}".format(current_label))
 
     print("[STATUS] completed Global Feature Extraction...")
+    completed_global_feature_extraction = 1
 
     # get the overall feature vector size
     print("[STATUS] feature vector size {}".format(
