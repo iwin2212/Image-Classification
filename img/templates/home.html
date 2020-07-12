@@ -55,7 +55,7 @@
             margin: -75px 0 0 -75px;
             border: 16px solid hsl(0, 0%, 97%);
             border-radius: 50%;
-            border-top: 16px solid #d6123c;
+            border-top: 16px solid #1257d6;
             width: 120px;
             height: 120px;
             -webkit-animation: spin 2s linear infinite;
@@ -72,6 +72,7 @@
             }
         }
 
+        /* 
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
@@ -80,7 +81,7 @@
             100% {
                 transform: rotate(360deg);
             }
-        }
+        } */
 
         /* Add animation to "page content" */
         .animate-bottom {
@@ -135,7 +136,7 @@
                 <div>
                     <form action="/result" method="POST" enctype="multipart/form-data">
                         <input type="file" multiple="" name="file[]" class="btn-services scrollto" />
-                        <input id="waiting" type="submit" value="Upload" class="btn-get-started scrollto"
+                        <input id="waiting" type="submit" value="Tải lên" class="btn-get-started scrollto"
                             data-toggle="modal" data-target="#myModal" onclick="return true">
                     </form>
                 </div>
@@ -148,11 +149,11 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 id="loader" class="modal-title">IN PROCESS:</h4>
+                            <h4 id="loader" style="color:red;" class="modal-title">IN PROCESS:</h4>
                         </div>
                         <div class="modal-body">
                             <p>Running...</p>
-                            <div class="message_holder"></div>
+                            <div class="message_holder" onchange=""></div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -186,6 +187,12 @@
         </table>
     </div class="container">
 
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script>
+        def
+        $('div.message_holder').append('<div><b style="color: #000">' + data.message + '</div>')
+    </script>
 </body>
 
 </html>

@@ -17,8 +17,3 @@ test_path = os.path.join(path, 'dataset/test/')
 
 output_path = os.path.join(path, 'static/results')
 model_path = os.path.join(path, 'static/model')
-
-training_started = 0
-splitted_train_and_test_dat = 0
-completed_global_feature_extraction = 0
-training_finished = 0

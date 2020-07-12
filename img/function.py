@@ -7,6 +7,7 @@ import mahotas
 import cv2
 import os
 from const import *
+import shutil
 
 
 # detail about train set
@@ -18,6 +19,21 @@ def info(train_path):
         numberFiles = len(os.listdir(os.path.join(train_path, each)))
         dict[each] = numberFiles
     return dict
+
+
+def clearDir():
+    if os.path.exists(output_path):
+        shutil.rmtree(output_path)
+    if os.path.exists(model_path):
+        shutil.rmtree(model_path)
+    if os.path.exists(test_path):
+        shutil.rmtree(test_path)
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
+    if not os.path.exists(model_path):
+        os.mkdir(model_path)
+    if not os.path.exists(test_path):
+        os.mkdir(test_path)
 
 
 # feature-descriptor-1: Hu Moments
@@ -104,7 +120,6 @@ def get_data_label():
         print("[STATUS] processed folder: {}".format(current_label))
 
     print("[STATUS] completed Global Feature Extraction...")
-    completed_global_feature_extraction = 1
 
     # get the overall feature vector size
     print("[STATUS] feature vector size {}".format(

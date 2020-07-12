@@ -32,14 +32,13 @@ def train_test():
     print("[STATUS] labels shape: {}".format(global_labels.shape))
 
     print("[STATUS] training started...")
-    training_started = 1
 
     # split the training and testing data
     (trainDataGlobal, testDataGlobal, trainLabelsGlobal, testLabelsGlobal) = train_test_split(
         np.array(global_features), np.array(global_labels), test_size=test_size, random_state=seed)
 
     print("[STATUS] splitted train and test data...")
-    splitted_train_and_test_dat = 1
+
     print("Train data  : {}".format(trainDataGlobal.shape))
     print("Test data   : {}".format(testDataGlobal.shape))
     print("Train labels: {}".format(trainLabelsGlobal.shape))
@@ -59,7 +58,6 @@ def train_test():
     plt.xlabel("Thuật toán")
     plt.savefig(os.path.join(model_path, img_name))
     print("Training finished.")
-    training_finished = 1
 
 # -----------------------------------
 # TESTING OUR MODEL

@@ -1,10 +1,13 @@
+#!/usr/local/bin/python
+# -*- coding: utf-8 -*-
 from flask import Flask, flash, request, redirect, url_for, render_template, session, send_from_directory
 from werkzeug.utils import secure_filename
 import yaml
 import os
 from const import *
 from train_test import train_test
-from function import info
+from function import info, clearDir
+
 
 UPLOAD_FOLDER = test_path
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
@@ -21,6 +24,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def home():
+    clearDir()
     return render_template('home.html', dict=dict)
 
 
@@ -33,7 +37,7 @@ def result():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 label, mean, std, img_name, global_features_shape, global_labels_shape, trainDataGlobal_shape, testDataGlobal_shape, trainLabelsGlobal_shape, testLabelsGlobal_shape = train_test()
-                os.remove(test_path + filename)
+
         return render_template('result.html', dict=dict, label=label, acc=mean, std=std, img_name=img_name,
                                global_features_shape=global_features_shape, global_labels_shape=global_labels_shape,
                                trainDataGlobal_shape=trainDataGlobal_shape, testDataGlobal_shape=testDataGlobal_shape,
