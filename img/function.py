@@ -21,6 +21,7 @@ def info(train_path):
     return dict
 
 
+# make a folder to empty folder
 def clearDir():
     if os.path.exists(output_path):
         shutil.rmtree(output_path)
@@ -66,6 +67,7 @@ def fd_histogram(image, mask=None):
     return hist.flatten()
 
 
+# feature = Color Histogram + Haralick Texture + Hu Moments
 def get_feature(image):
     image = cv2.resize(image, fixed_size)
     ####################################
@@ -85,7 +87,6 @@ def get_feature(image):
 def get_train_label():
     # get the training labels
     train_labels = os.listdir(train_path)
-
     # sort the training labels
     train_labels.sort()
     # print(train_labels)

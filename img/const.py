@@ -10,6 +10,7 @@ test_size = 0.10
 seed = 9
 scoring = "accuracy"
 
+# link
 path = 'D:/learning/XLA/Image-Classification/img'
 
 train_path = os.path.join(path, 'dataset/train/')

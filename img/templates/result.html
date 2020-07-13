@@ -49,8 +49,6 @@
 </head>
 
 <body>
-
-    <br>
     <section id="about">
         <div class="container">
             <header class="section-header">
@@ -125,36 +123,16 @@
                 <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
                     <img src="/static/results/{{label}}.png" class="img-fluid" alt="">
                     <p id="name">Thuộc về class: <big><b>{{label}}</b></big></p>
+
+                    <div class="container">
+                        <a class="btn btn-success" role="button" href='/'>Quay lại</a>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="container">
-        <a class="btn btn-success" role="button" href='/'>Quay lại</a>
-    </div>
-
-    <div class="container">
-        <h2> Thông tin về dataset</h2>
-    </div>
-    <div class="container">
-        <table class="table table-striped table-bordered table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Class</th>
-                    <th>Số lượng ảnh</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for key, value in dict.items() %}
-                <tr>
-                    <td>{{key}}</td>
-                    <td>{{value}} ảnh</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div class="container">
 
     <!-- JavaScript Libraries -->
     <script src="/static/lib/jquery/jquery.min.js"></script>
